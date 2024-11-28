@@ -1,0 +1,14 @@
+#!/bin/bash
+
+GIT_DIR=/home/hugomoruno/apache/public
+GIT_WORK_TREE=/home/hugomoruno/apache/public
+
+if [ ! -d $GIT_WORK_TREE ]; then
+        mkdir $GIT_WORK_TREE
+fi
+
+git --git-dir=$GIT_DIR --work-tree=$GIT_WORK_TREE checkout -f master
+cd $GIT_WORK_TREE
+git --git-dir=$GIT_DIR --work-tree=$GIT_WORK_TREE submodule update --init --recursive
+docker-compose -f docker-compose-prod.yml down &&
+docker-compose -f docker-compose-prod.yml up -d

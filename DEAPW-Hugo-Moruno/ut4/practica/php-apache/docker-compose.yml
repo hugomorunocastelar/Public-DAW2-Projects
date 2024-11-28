@@ -1,0 +1,17 @@
+services:
+    httpd:
+        container_name: apache
+        volumes:
+            - ./public:/var/www/html/
+            - ./config/security.conf:/etc/apache2/conf-available/security.conf
+        image: php:apache
+        networks:
+            - red_interna
+        labels:
+            caddy: "ut4.hugocastelar.duckdns.org"
+            caddy.reverse_proxy: "{{upstreams}}"
+        restart: always
+            
+networks:
+    red_interna:
+        external: true

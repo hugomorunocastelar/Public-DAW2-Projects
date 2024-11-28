@@ -1,0 +1,5 @@
+Host hugocastelar
+    HostName hugocastelar.duckdns.org
+    User hugomoruno
+    Port 22
+    IdentityFile C:/Users/hugom/.ssh/pubauzrekey

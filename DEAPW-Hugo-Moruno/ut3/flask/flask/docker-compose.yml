@@ -1,0 +1,20 @@
+services:
+  app:
+      build: .
+      container_name: flask
+      environment:
+          - FLASK_ENV=production
+          - FLASK_APP=app.py
+      command: flask run --host=0.0.0.0
+      networks:
+        - red_interna
+        - red_monitor
+      labels:
+        caddy: "node.ut3hugocastelar.duckdns.org"
+        caddy.reverse_proxy: "{{upstreams 3000}}"
+
+networks:
+  red_interna:
+    external: true
+  red_monitor:
+    external: true

@@ -1,0 +1,18 @@
+services:
+  cors:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    networks:
+      - red_interna
+      - red_monitor
+    labels:
+      caddy: "node.ut3hugocastelar.duckdns.org"
+      caddy.reverse_proxy: "{{upstreams 3000}}"
+    entrypoint: ["node", "server.js"]
+
+networks:
+  red_interna:
+    external: true
+  red_monitor:
+    external: true

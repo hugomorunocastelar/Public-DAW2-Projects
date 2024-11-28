@@ -1,0 +1,71 @@
+services:
+    duckdns:
+        image: lscr.io/linuxserver/duckdns:latest
+        container_name: duckdns
+        network_mode: host #optional
+        environment:
+           - PUID=1000 #optional
+           - PGID=1000 #optional
+           - TZ=Etc/UTC #optional
+           - SUBDOMAINS=subdomain1,subdomain2
+           - TOKEN=token
+           - UPDATE_IP=ipv4 #optional
+           - LOG_FILE=false #optional
+        restart: unless-stopped
+
+    caddy:
+        image: lucaslorentz/caddy-docker-proxy:ci-alpine
+        container_name: caddy
+        ports:
+          - 80:80
+          - 443:443
+        environment:
+          - CADDY_INGRESS_NETWORKS=red_interna
+        networks:
+          - red_interna
+          - red_monitor
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - caddy_data:/data
+        restart: unless-stopped
+
+    apache:
+        image: php:apache
+        container_name: apache
+        networks:
+          - red_interna
+          - red_monitor
+        volumes:
+          - ./apache/public:/var/www/html
+          - ./apache/config/security.conf:/etc/apache2/conf-available/security.conf
+        labels:
+            caddy: "cosa.hugocastelar.duckdns.org"
+            caddy.reverse_proxy: "{{upstreams}}"
+            #caddy.tls: "internal"
+
+    kuma:
+        image: louislam/uptime-kuma:latest
+        container_name: kuma
+        environment:
+            - DB_SQLITE_FILE=/app/data/kuma.db
+        volumes:
+            - uptime-kuma-data:/app/data
+        ports:
+            - 3001:3001
+        networks:
+            - red_interna
+            - red_monitor
+        labels:
+            caddy: "monitor.hugocastelar.duckdns.org"
+            caddy.reverse_proxy: "{{upstreams 3001}}"
+            #caddy.tls: "internal"
+
+networks:
+    red_interna:
+        external: true
+    red_monitor:
+        external: true
+
+volumes:
+    caddy_data: {}
+    uptime-kuma-data:

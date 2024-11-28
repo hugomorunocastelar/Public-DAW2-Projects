@@ -1,0 +1,55 @@
+services:
+  app:
+    image: hugomoru5/laravelsail
+    container_name: laravel_app
+    volumes:
+      - ./laravelSail:/var/www/html
+    environment:
+      - WWWUSER=${WWWUSER}
+      - WWWGROUP=${WWWGROUP}
+      - LARAVEL_SAIL=1
+      - XDEBUG_MODE=off
+    networks:
+      - sail
+      - red_interna
+      - red_monitor
+    labels:
+      caddy: "laravel.ut3hugocastelar.duckdns.org"
+      caddy.reverse_proxy: "{{upstreams 80}}"
+
+  mysql:
+    image: 'mysql/mysql-server:8.0'
+    ports:
+      - '${FORWARD_DB_PORT:-3306}:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: '${DB_DATABASE}'
+      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - 'mysql_data:/var/lib/mysql'
+      - './laravelSail/vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+    networks:
+      - sail
+    healthcheck:
+      test:
+        - CMD
+        - mysqladmin
+        - ping
+        - '-p${DB_PASSWORD}'
+      retries: 3
+      timeout: 5s
+
+networks:
+  sail:
+    driver: bridge
+  red_interna:
+    external: true
+  red_monitor:
+    external: true
+
+volumes:
+  mysql_data:
+    driver: local
