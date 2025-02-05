@@ -3,11 +3,11 @@ Proyectos ya entregados que han sido evaluados. 🙂
 
 # Repositorio de Prácticas del Alumno: Hugo Moruno Parra
 
-[DEAPW - Despliegues](#asignatura-de-despliege-de-aplicaciones-web)
-[DDIW - Interfaces](#asignatura-de-desarrollo-de-interfaces-web)
-[DWEC - Clientes](#asignatura-de-desarrollo-web-en-entorno-cliente)
-[DWES - Servidores](#asignatura-de-desarrollo-web-en-entorno-servidor)
-[DOMO - Domótica](#asignatura-de-domótica)
+[DEAPW - Despliegues](#asignatura-de-despliege-de-aplicaciones-web)  
+[DDIW - Interfaces](#asignatura-de-desarrollo-de-interfaces-web)  
+[DWEC - Clientes](#asignatura-de-desarrollo-web-en-entorno-cliente)  
+[DWES - Servidores](#asignatura-de-desarrollo-web-en-entorno-servidor)  
+[DOMO - Domótica](#asignatura-de-domótica)  
 
 ## Datos
 
@@ -90,33 +90,33 @@ Carpeta - [PRAC5.2](DEAPW-Hugo-Moruno/ut5/ldap/)
 
 ## Asignatura de Desarrollo de Interfaces Web
 
-Tiene demasiados proyectos, no voy a ponerlos todos.
+Tiene demasiados proyectos, no voy a ponerlos todos.  
 [Carpeta](DDIW-Hugo-Moruno/)
 
 ## Asignatura de Desarrollo Web en Entorno Cliente
 
-[Javascript](DWEC-Hugo-Moruno/JavaScript/)
-[Dom](DWEC-Hugo-Moruno/Dom/)
-[Ajax](DWEC-Hugo-Moruno/Ajax/)
-[Angular](DWEC-Hugo-Moruno/Angular/)
-[Retos](DWEC-Hugo-Moruno/Retos/)
-[Script Modelo](DWEC-Hugo-Moruno/ScriptModelo/)
+[Javascript](DWEC-Hugo-Moruno/JavaScript/)  
+[Dom](DWEC-Hugo-Moruno/Dom/)  
+[Ajax](DWEC-Hugo-Moruno/Ajax/)  
+[Angular](DWEC-Hugo-Moruno/Angular/)  
+[Retos](DWEC-Hugo-Moruno/Retos/)  
+[Script Modelo](DWEC-Hugo-Moruno/ScriptModelo/)  
 
-[Proyecto de Javascript Vanilla (AJAX)](DWEC-Hugo-Moruno/Proyecto-Instituto/)
-[Proyecto de Angular](DWEC-Hugo-Moruno/Proyecto-Instituto-Angular/)
+[Proyecto de Javascript Vanilla (AJAX)](DWEC-Hugo-Moruno/Proyecto-Instituto/)  
+[Proyecto de Angular](DWEC-Hugo-Moruno/Proyecto-Instituto-Angular/)  
 
 ## Asignatura de Desarrollo Web en Entorno Servidor
 
-[PHP](DWES-Hugo-Moruno/PHP/)
-[Laravel](DWES-Hugo-Moruno/Laravel/)
-[Spring](DWES-Hugo-Moruno/Spring/)
-[Angular](DWES-Hugo-Moruno/Angular/)
+[PHP](DWES-Hugo-Moruno/PHP/)  
+[Laravel](DWES-Hugo-Moruno/Laravel/)  
+[Spring](DWES-Hugo-Moruno/Spring/)  
+[Angular](DWES-Hugo-Moruno/Angular/)  
 
 ## Asignatura de Domótica
 
-[Ejercicio 1](DOMO-Hugo-Moruno/Ejercicio1/)
-[Ejercicio 2](DOMO-Hugo-Moruno/Ejercicio2/)
-[Ejercicio 3](DOMO-Hugo-Moruno/Ejercicio3/)
-[Ejercicio 4](DOMO-Hugo-Moruno/Ejercicio4/)
-[Ejercicio 5](DOMO-Hugo-Moruno/Ejercicio5/)
-[Ejercicio 6](DOMO-Hugo-Moruno/Ejercicio6/)
+[Ejercicio 1](DOMO-Hugo-Moruno/Ejercicio1/)  
+[Ejercicio 2](DOMO-Hugo-Moruno/Ejercicio2/)  
+[Ejercicio 3](DOMO-Hugo-Moruno/Ejercicio3/)  
+[Ejercicio 4](DOMO-Hugo-Moruno/Ejercicio4/)  
+[Ejercicio 5](DOMO-Hugo-Moruno/Ejercicio5/)  
+[Ejercicio 6](DOMO-Hugo-Moruno/Ejercicio6/)  
