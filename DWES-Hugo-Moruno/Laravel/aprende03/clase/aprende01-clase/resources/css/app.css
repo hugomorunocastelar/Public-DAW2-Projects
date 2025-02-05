@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.table-striped tbody tr:nth-child(4n +1) {
+    @apply bg-cyan-100;
+}
+.table-striped tbody tr:nth-child(4n +2) {
+    @apply bg-cyan-50 border-b-2 border-gray-300;
+}
+.table-striped tbody tr:nth-child(4n +3) {
+    @apply bg-amber-100;
+}
+.table-striped tbody tr:nth-child(4n +4) {
+    @apply bg-amber-50 border-b-2 border-gray-300;
+}

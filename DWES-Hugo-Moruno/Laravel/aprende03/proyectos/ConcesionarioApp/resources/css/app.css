@@ -1,0 +1,87 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+[x-cloak]
+{
+    display: none;
+}
+
+#imgCochesPortadas
+{
+    height: 100%;
+    transition: transform 0.3s ease, margin-left 0.3s ease;
+}
+
+#bannerCochesPortadas
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+#bannerCochesPortadas:nth-child(odd)
+{
+    background-color: #edf2f7;
+}
+
+#bannerCochesPortadas:nth-child(even)
+{
+    background-color: #cbd5e0;
+}
+
+#bannerCochesPortadas > div
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#bannerCochesPortadas img
+{
+    height: 300px;
+    max-width: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease, margin-left 0.3s ease;
+}
+
+#bannerCochesPortadas:hover img
+{
+    transform: scale(1.3);
+}
+
+#bannerCochesPortadas:nth-child(odd):hover #divCochesPortadas
+{
+    transform: translateX(20px);
+}
+
+#bannerCochesPortadas:nth-child(even):hover #divCochesPortadas
+{
+    transform: translateX(-20px);
+}
+
+#divCochesPortadas
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+}
+
+#divCochesPortadas div
+{
+    width: 90%;
+    padding: 20px;
+    transition: margin-right 0.3s ease;
+}
+
+#divCochesPortadas div:nth-child(even)
+{
+    text-align: right;
+}

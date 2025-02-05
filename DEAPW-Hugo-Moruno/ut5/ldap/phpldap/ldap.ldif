@@ -1,0 +1,17 @@
+dn: ou=users,dc=example,dc=org
+objectClass: organizationalUnit
+ou: users
+
+dn: cn=hugo,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+cn: hugo
+sn: hugo
+uid: hugo
+userPassword: hugopassword
+
+dn: cn=ana,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+cn: ana
+sn: ana
+uid: ana
+userPassword: anapassword

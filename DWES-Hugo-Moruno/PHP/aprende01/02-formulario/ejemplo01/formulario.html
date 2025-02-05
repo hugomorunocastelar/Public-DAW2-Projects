@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <form class="formulario" action="ficha.php" method="post" enctype="multipart/form-data">
+        <div>
+            <h1>FORMULARIO DE CV</h1>
+            <div>
+                <label for="nombre">Nombre: </label>
+                <input id="nombre" type="text" name="nombre">
+            </div>
+            <div>
+                <label for="apellido1">Primer Apellido: </label>
+                <input id="apellido1" type="text" name="apellido1">
+            </div>
+            <div>
+                <label for="apellido2">Segundo Apellido: </label>
+                <input id="apellido2" type="text" name="apellido2">
+            </div>
+            <div>
+                <label for="email">Email: </label>
+                <input id="email" type="email" name="email">
+            </div>
+            <div>
+                <label for="fechanacimiento">Primer Apellido: </label>
+                <input id="fechanacimiento" type="date" name="fechanacimiento">
+            </div>
+            <div>
+                <label>Sexo:</label>
+                <label>
+                    <input type="radio" value="H" checked name="sexo"> Hombre
+                </label>
+                <label>
+                    <input type="radio" value="M" name="sexo"> Mujer
+                </label>
+                <label>
+                    <input type="radio" value="O" name="sexo"> Otro
+                </label>
+                <label>
+                    <input type="radio" value="X" name="sexo"> Prefiero no decirlo
+                </label>
+            </div>
+
+            <div>
+                <label for="aficiones">Aficiones:</label>
+                <label>
+                    <input id="aficiones" type="checkbox" value="INF" name="aficiones[]"> Informática
+                </label>
+                <label>
+                    <input id="aficiones" type="checkbox" value="LEC" name="aficiones[]"> Lectura
+                </label>
+                <label>
+                    <input id="aficiones" type="checkbox" value="DEP" name="aficiones[]"> Deporte
+                </label>
+            </div>
+
+            <div>
+                <label for="nivel">Nivel de estudios:</label>
+                <select id="nivel" name="nivel">
+                    <option value="tgm">Técnico Grado Medio</option>
+                    <option value="tgs">Técnico Grado Superior</option>
+                    <option value="grad">Graduado</option>
+                </select>
+            </div>
+            <div>
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" name="observaciones"></textarea>
+            </div>
+            <div>
+                <label for="imagen">Imagen: </label>
+                <input id="imagen" type="file" name="imagen">
+            </div>
+            <div class="button-div">
+                <br>
+                <input type="submit" value="Enviar">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

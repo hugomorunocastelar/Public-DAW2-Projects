@@ -1,0 +1,66 @@
+<div>
+  <h2 class="m-4 text-center">Roles Assignment</h2>
+  <app-classes (classSchoolChange)="classSchool = $event" [crudClasses]="false"></app-classes>
+  <div class="container d-flex align-items-center justify-content-between">
+    <button type="button" id="btnDelete" (click)="modifyUsersToClass(false)" class="btn btn-outline-danger">
+      Delete
+    </button>
+    <button type="button" id="btnLoad" (click)="modifyUsersToClass(true)" class="btn btn-outline-primary">
+      Load
+    </button>
+  </div>
+  <form id="rolesForm" class="container mt-3">
+    <div id="rolesContent" class="row">
+      <div class="col-6">
+        <h4 id="tableTitle" class="text-center">Professors</h4>
+        <div style="max-height: 400px; overflow-y: scroll">
+          <table class="table">
+            <thead>
+              <tr id="trhead">
+                <th scope="col">Sel.</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prof of profs">
+                <td>
+                  <input chkboxProfs type="checkbox" [value]="prof.id">
+                </td>
+                <th scope="row">{{ prof.id }}</th>
+                <td>{{ prof.name }}</td>
+                <td>{{ prof.age }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-6">
+        <h4 id="tableTitle" class="text-center">Students</h4>
+        <div style="max-height: 400px; overflow-y: scroll">
+          <table class="table">
+            <thead>
+              <tr id="trhead">
+                <th scope="col">Sel.</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let alum of alums">
+                <td>
+                  <input chkboxAlums type="checkbox" [value]="alum.id">
+                </td>
+                <th scope="row">{{ alum.id }}</th>
+                <td>{{ alum.name }}</td>
+                <td>{{ alum.age }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

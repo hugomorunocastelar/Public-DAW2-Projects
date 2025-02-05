@@ -1,0 +1,16 @@
+services:
+    phpldapadmin:
+      container_name: phpldap
+      image: osixia/phpldapadmin:0.9.0
+      ports:
+        - 8080:80
+        - 8443:443
+      environment:
+        PHPLDAPADMIN_LDAP_HOSTS: ldap
+        PHPLDAPADMIN_HTTPS: "false"
+      networks:
+        - red_interna
+
+networks:
+  red_interna:
+    external: true

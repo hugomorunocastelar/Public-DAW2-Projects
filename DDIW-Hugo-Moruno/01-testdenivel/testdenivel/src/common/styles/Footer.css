@@ -1,0 +1,11 @@
+@import url('./color.css');
+
+#Foot {
+    background-color: var(--colorCabecero);
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}

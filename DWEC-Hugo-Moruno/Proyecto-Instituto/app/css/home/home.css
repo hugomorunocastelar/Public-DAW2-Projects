@@ -1,0 +1,6 @@
+/* To the carousel images */
+img[class="d-block w-100"]
+{
+    height: 500px;
+    object-fit: cover;
+}

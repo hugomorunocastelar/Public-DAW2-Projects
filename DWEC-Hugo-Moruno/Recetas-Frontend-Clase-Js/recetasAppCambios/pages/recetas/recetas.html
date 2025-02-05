@@ -1,0 +1,28 @@
+<script src="./pages/recetas/recetas.mjs" type="module"></script>
+
+<div id="recetas">
+
+    <div class="container-fluid m-3">
+        <input id="iFiltro" type="text" class="form-control">
+        <button id="btBuscar" type="button" class="btn btn-primary">
+            <i class="bi-search"></i>
+        </button>        
+        <button id="btAnadir" type="button" class="btn btn-success rounded-circle">
+            <i class="bi-person-plus"></i>
+        </button>              
+    </div> 
+
+    <table class="table" data-pagination="true" data-page-list="[]">
+        <thead>
+              <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+              </tr>               
+        </thead>
+        <tbody id="resultado"></tbody>
+    </table>
+    <div id="paginador"></div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class=" my-5">Lista de articulos</h1>
+    <button class="btn btn-success fs-4 m-0" style="height: fit-content;">
+      <p class="m-0 p-0">+</p>
+    </button>
+  </div>
+  <div class="container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="col-1">Referencia</th>
+          <th scope="col" class="col-2">Nombre</th>
+          <th scope="col" class="col-3">Descripcion</th>
+          <th scope="col" class="col-2">Proveedor nif</th>
+          <th class="col-2"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody_proveedores">
+        <tr *ngFor="let articulo of articulos; let i = index">
+          <td>{{ articulo.referencia }}</td>
+          <td>{{ articulo.nombre }}</td>
+          <td>{{ articulo.descripcion }}</td>
+          <td>{{ articulo.proveedor.nif }}</td>
+          <td class="d-flex flex-row justify-content-around">
+              <i [routerLink]="['../ver', articulo.id ]" class="btn btn-success bi bi-eye"></i>
+              <i [routerLink]="['../editar', articulo.id ]" class="btn btn-warning bi bi-pencil"></i>
+              <i (click)="borrarArticulo(articulo)" class="btn btn-danger bi bi-trash"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

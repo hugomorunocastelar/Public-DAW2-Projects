@@ -1,0 +1,65 @@
+html,
+body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0 !important;
+}
+
+body>.skiptranslate:first-child
+{
+    display: none !important;
+}
+
+#imglogo
+{
+    width: 50px;
+    height: 50px;
+}
+
+.offcanvas-header
+{
+    justify-content: space-between !important;
+}
+
+.offcanvas-header>*
+{
+    margin: 0 !important;
+}
+
+#translate_element
+{
+    display: flex;
+    justify-content: center;
+}
+
+.infoBlock
+{
+    position: absolute;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.678);
+}
+
+.infoBlockClose
+{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 20;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.infoBlockClose *
+{
+    width: 100%;
+    height: 100%;
+    color: white;
+}

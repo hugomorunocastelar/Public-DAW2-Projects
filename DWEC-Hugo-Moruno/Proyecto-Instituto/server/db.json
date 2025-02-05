@@ -1,0 +1,376 @@
+{
+  "users": [
+    {
+      "email": "admin@admin.admin",
+      "password": "$2a$10$PhsTq/OSmqMUoNYJXy/OIeYh7BInzwRltoDFaWBJ5AzC2SkVcFvvK",
+      "name": "admin",
+      "rol": "admin",
+      "age": 0,
+      "id": 1,
+      "classes": []
+    },
+    {
+      "email": "hugomor@h.h",
+      "password": "$2a$10$15Mgg8krFzJAzhBj.Je4COMkgShy4ZNUp1IJtr3AzQMXbdtloEkku",
+      "name": "Hugo Moruno Parra",
+      "age": 21,
+      "classes": [],
+      "rol": "alum",
+      "id": 3
+    },
+    {
+      "email": "hugareda@hugis.hug",
+      "password": "$2a$10$Gg2mQLns4v/.9QZOR9YbEOmgXPA5rlVHHBRNrRKCsIM6fyhgEoMx.",
+      "name": "Hugo Moreno Pérez",
+      "age": 41,
+      "classes": [],
+      "rol": "alum",
+      "id": 4
+    },
+    {
+      "email": "hugistrifis@hugos.hug",
+      "password": "$2a$10$m1IFDbUSAo/mU2wFfkOxDOUA8o6PTiqy76VFh8ff7gmRF0FwLvFb.",
+      "name": "Huga Martínez Píriz",
+      "age": "35",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "prof",
+      "id": 5
+    },
+    {
+      "email": "hugistres@hug.tres",
+      "password": "$2a$10$Eszp9y8L2veq2KTMjRi/6.0SrIMmPNzCuu0lOlTxtFSgywrve7ssK",
+      "name": "Hegue Meregue Perre",
+      "age": "62",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "alum",
+      "id": 6
+    },
+    {
+      "email": "hugusplus@hugus.hug",
+      "password": "$2a$10$MaAxHeUHi42G3yGZdPzZLeUMEXA4VgljjUI.tUEkmgIlR4P7nQd7q",
+      "name": "Hugus Mugus Purus",
+      "age": "15",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "alum",
+      "id": 7
+    },
+    {
+      "email": "hogorez@hog.hug",
+      "password": "$2a$10$D8/alNCfiBOvQK4sUoCvdObZJ/zL54KrMbbKVhX1FWs6o/ieyyth2",
+      "name": "Hogo Mogo Pogo",
+      "age": "46",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "alum",
+      "id": 9
+    },
+    {
+      "email": "hagarez@hagar.hag",
+      "password": "$2a$10$xfsrUOQ2SPFoE2KLmA9AbO9TPZ552hKiJ.fbeGncWqezi.w8owIGq",
+      "name": "Hago Mago Rdito",
+      "age": "36",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "prof",
+      "id": 10
+    },
+    {
+      "email": "higitor@hugis.hug",
+      "password": "$2a$10$YNjU.1b8y0ff63z0dDMAzujcCEoYmoAX8P3xjaZ8sgABDsE/pJJte",
+      "name": "Higo Chumbo",
+      "age": "26",
+      "classes": [],
+      "rol": "admin",
+      "id": 11
+    },
+    {
+      "email": "student1@iescastelar.com",
+      "password": "$2a$10$BhH04RU8aqECvYTBgWvbZuqk12kCSlvnWmvV5KHYmoAjdKq4f7Ug2",
+      "name": "Student One",
+      "age": "16",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "alum",
+      "id": 12
+    },
+    {
+      "email": "student2@iescastelar.com",
+      "password": "$2a$10$bu1TFgHHmmEdxffjIii9Mev6WLogpyeB2UBJDhFyHAxXy5GN9BZo6",
+      "name": "Student Two",
+      "age": "17",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "alum",
+      "id": 13
+    },
+    {
+      "email": "student3@iescastelar.com",
+      "password": "$2a$10$dXaO4OAmDjbC.3IXNacHlum9Dn4utHRfQcVRLe/a4ir5g/bv2Jgxa",
+      "name": "Student Three",
+      "age": "15",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 14
+    },
+    {
+      "email": "student4@iescastelar.com",
+      "password": "$2a$10$3.KpNH6JifoRQPPhmzOVA.1R/tWVc6IfzV8TI8UqVgPinKfBykz8e",
+      "name": "Student Four",
+      "age": "16",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "prof",
+      "id": 15
+    },
+    {
+      "email": "student5@iescastelar.com",
+      "password": "$2a$10$DEdrIdP1b32UPy/FLLzSdOTd8GZdqMbplERpgpOJIz/bkViVuSc1K",
+      "name": "Student Five",
+      "age": "18",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 16
+    },
+    {
+      "email": "student6@iescastelar.com",
+      "password": "$2a$10$GRjsJ1.6qX0OwXvDMQdiLuXDVMg9P1O1Vxn83kSrHguD5c.nCHATK",
+      "name": "Student Six",
+      "age": "17",
+      "classes": [
+        {
+          "id": 0
+        }
+      ],
+      "rol": "alum",
+      "id": 17
+    },
+    {
+      "email": "student7@iescastelar.com",
+      "password": "$2a$10$euFRVpYEgcevBC6VSgyUV.gyvJAxddfrRn/gWeGhuveKzNA1wZyYS",
+      "name": "Student Seven",
+      "age": "15",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 18
+    },
+    {
+      "email": "student8@iescastelar.com",
+      "password": "$2a$10$NHntL4OuWOdn3ekIPx4hEeWXsVEd5cVb8XbBJU1xxIwftoRIuoo.i",
+      "name": "Student Eight",
+      "age": "16",
+      "classes": [],
+      "rol": "alum",
+      "id": 19
+    },
+    {
+      "email": "student9@iescastelar.com",
+      "password": "$2a$10$eBwuGD61nxdTcRBSTUoqIOStQ7b21DQ1eHSDVZKB0dsFdiPTvqtwW",
+      "name": "Student Nine",
+      "age": "18",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 20
+    },
+    {
+      "email": "student10@iescastelar.com",
+      "password": "$2a$10$JzYtO0gRyL7Euh5XWYzU.eAhA4CYpNvzS1FLup1HQSLl13lG2SoEe",
+      "name": "Student Ten",
+      "age": "17",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 21
+    },
+    {
+      "email": "student11@iescastelar.com",
+      "password": "$2a$10$dchbue5k65e4j/un3M4JFev7Mugk33OTJ4KwPMA4ZUTwSpK9qCMBq",
+      "name": "Student Eleven",
+      "age": "15",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 22
+    },
+    {
+      "email": "student12@iescastelar.com",
+      "password": "$2a$10$85VCkTT2k36SE.duLqHc6e9CHZSpVo73B/3j7BN4Cnu5wnDc6m7Aa",
+      "name": "Student Twelve",
+      "age": "16",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 23
+    },
+    {
+      "email": "student13@iescastelar.com",
+      "password": "$2a$10$b/T0oFY.mvYQEi4BaMqr0.ToArjNg2CogfYB6TECbDQvz1QvGhsM6",
+      "name": "Student Thirteen",
+      "age": "18",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 24
+    },
+    {
+      "email": "student14@iescastelar.com",
+      "password": "$2a$10$dxVhUqloqJoV4MkJCyXmzeONmEO0FTekW8cJWEZCWdVTI1we4Ntai",
+      "name": "Student Fourteen",
+      "age": "17",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 25
+    },
+    {
+      "email": "student15@iescastelar.com",
+      "password": "$2a$10$yjSj9uSojLHMI7X1Lc8WBOFg0anLg.BXNKDPeRJcettZyzYa/wzsO",
+      "name": "Student Fifteen",
+      "age": "16",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 26
+    },
+    {
+      "email": "student16@iescastelar.com",
+      "password": "$2a$10$1jHUQnoMI/sPPRSTdBPyquyhqWs1ov9ZYzlEbYrHl4Cod/nB3B.fi",
+      "name": "Student Sixteen",
+      "age": "15",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 27
+    },
+    {
+      "email": "student17@iescastelar.com",
+      "password": "$2a$10$kKZKtkgjSjjWuJSv/DMe6.EUhAEdJ..uPRBk/e9vGyvhac7.dVEmq",
+      "name": "Student Seventeen",
+      "age": "18",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 28
+    },
+    {
+      "email": "student18@iescastelar.com",
+      "password": "$2a$10$nabCl5RdbKHDbXaBWSWPoud2sLO5F5oamCuDnQjrsk5TQxLlUzEQy",
+      "name": "Student Eighteen",
+      "age": "17",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 29
+    },
+    {
+      "email": "student19@iescastelar.com",
+      "password": "$2a$10$iUr1Zmm6355r5kCQx4NmXeUtbV0VBauDBxjdqiu8V6uzY2xKuFwZG",
+      "name": "Student Nineteen",
+      "age": "16",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 30
+    },
+    {
+      "email": "student20@iescastelar.com",
+      "password": "$2a$10$mfS9siw6NGZlHPbP0E2HheUx5XqeQPGmdHPl6gy5vIuHz9OBDeO.2",
+      "name": "Student Twenty",
+      "age": "15",
+      "classes": [],
+      "rol": "unassigned",
+      "id": 31
+    },
+    {
+      "email": "hugo3@hugo.hugo",
+      "password": "$2a$10$rhRFWWXmv57FKVWLpI5wNuku5FrB6QxEWLylAwl/lm3wC0YvNqqoS",
+      "id": 32
+    }
+  ],
+  "class": [
+    {
+      "id": 0,
+      "name": "Daw2",
+      "profs": [
+        {
+          "id": 2
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 15
+        }
+      ],
+      "alums": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 17
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Dam2",
+      "profs": [],
+      "alums": []
+    },
+    {
+      "id": -1,
+      "name": "example class",
+      "profs": [],
+      "alums": []
+    },
+    {
+      "name": "daw1",
+      "profs": [],
+      "alums": [],
+      "id": 2
+    }
+  ],
+  "schoolName": {
+    "schoolName": "I.E.S Castelar"
+  },
+  "schoolAddress": {
+    "schoolAddress": "Av. Santiago Ramón y Cajal, 2, 06001 Badajoz"
+  },
+  "welcomeText": {
+    "welcomeText": "Some quick example text to build on the card title and make up the bulk of the card's content."
+  },
+  "hiwText": {
+    "hiwText": "Some quick example text to build on the card title and make up the bulk of the card's content."
+  }
+}

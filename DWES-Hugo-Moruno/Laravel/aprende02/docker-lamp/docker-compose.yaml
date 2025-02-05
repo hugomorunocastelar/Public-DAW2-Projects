@@ -1,0 +1,48 @@
+services:
+
+  www:
+    build: .
+    container_name: dwesv-apache-php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - dwesv-php
+
+  db:
+    image : mysql:8
+    container_name : dwesv-mysql-php
+    environment:
+      MYSQL_DATABASE: dwesv
+      MYSQL_USER: dwesv
+      MYSQL_PASSWORD: castelar
+      MYSQL_ROOT_PASSWORD: castelar
+    ports:
+      - "33060:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - dwesv-php
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: dwesv-phpmyadmin-php
+    ports:
+      - "8081:80"
+    volumes:
+      - ./config/php:/usr/local/etc/php
+    depends_on:
+      - db
+    environment:
+      MYSQL_USER: dwesv
+      MYSQL_PASSWORD: castelar
+      MYSQL_ROOT_PASSWORD: castelar
+    networks:
+      - dwesv-php
+
+networks:
+  dwesv-php:

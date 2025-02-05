@@ -1,0 +1,63 @@
+<div class="card px-4 py-2 my-4" style="height: 450px">
+  <div class="d-flex align-items-center justify-content-center">
+    <h3 class="text-center">{{ classSchool.name }}</h3>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-6" style="overflow-y: scroll; max-height: 350px">
+      <h4>Professors</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prof of classSchool.profs">
+            <th scope="row">{{ prof.id }}</th>
+            <td>{{ prof.name }}</td>
+            <td>{{ prof.email }}</td>
+            <td>{{ prof.rol }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6" style="overflow-y: scroll; max-height: 350px">
+      <h4 style="text-align: end;">Students</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alum of classSchool.alums">
+            <th scope="row">{{ alum.id }}</th>
+            <td>{{ alum.name }}</td>
+            <td>{{ alum.email }}</td>
+            <td>{{ alum.rol }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-pager [page]="page" (onPageChanged)="changePage($event)"></app-pager>
+
+<div class="d-flex justify-content-center align-items-center mt-4" *ngIf="crudClasses">
+  <div class="d-flex align-items-center">
+    <button class="btn btn-danger mx-2" (click)="deleteClass()">Delete</button>
+    <input type="text" class="form-control me-2" placeholder="Enter new class name" id="className" style="max-width: 300px;" />
+    <button class="btn btn-success" (click)="createClass()">Create</button>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center my-5" *ngIf="crudClasses">
+  <classes-graph></classes-graph>
+</div>

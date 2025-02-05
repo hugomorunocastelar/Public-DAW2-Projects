@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div>
+        <p>Tabla con combinación de filas y columnas</p>
+        <table>
+            <thead>
+                <th>celda 1</th>
+                <th>celda 2</th>
+                <th>celda 3</th>
+                <th>celda 4</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3">celda 5</td>
+                    <td>celda 6</td>
+                    <td colspan="2">celda 7</td>
+                </tr>
+                <tr>
+                    <td>celda 8</td>
+                    <td>celda 9</td>
+                    <td rowspan="2">celda 10</td>
+                </tr>
+                <tr>
+                    <td colspan="2">celda 11</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item">
+        <a (click)="prevPage()" class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item">
+        <span class="page-link">{{ page }}</span>
+      </li>
+      <li class="page-item">
+        <a (click)="nextPage()" class="page-link" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+</nav>    

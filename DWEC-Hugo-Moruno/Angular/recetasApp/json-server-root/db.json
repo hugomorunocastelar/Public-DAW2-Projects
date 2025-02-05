@@ -1,0 +1,183 @@
+{
+  "recetas": [
+    {
+      "id": 1,
+      "nombre": "Macarrones con tomate",
+      "descripcion": "Macarrones cocidos con salsa de tomate de bote",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "20",
+      "dificultad": "Fácil",
+      "puntuacion": "3.5"
+    },
+    {
+      "nombre": "Arroz tres delicias",
+      "descripcion": "Arroz cocido y frito con huevo, guisantes, zanahoia y jamón.",
+      "fechaAlta": "16/10/2024",
+      "tiempo": "25",
+      "dificultad": "Medio",
+      "puntuacion": "4.5",
+      "id": 2
+    },
+    {
+      "nombre": "Salchichas",
+      "descripcion": "Salchichas fritas en aceite de oliva",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "2",
+      "dificultad": "Fácil",
+      "puntuacion": "2.5",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nombre": "Macarrones con tomate",
+      "descripcion": "Macarrones cocidos con salsa de tomate de bote",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "20",
+      "dificultad": "Fácil",
+      "puntuacion": "3.5"
+    },
+    {
+      "nombre": "Arroz tres delicias",
+      "descripcion": "Arroz cocido y frito con huevo, guisantes, zanahoia y jamón.",
+      "fechaAlta": "16/10/2024",
+      "tiempo": "25",
+      "dificultad": "Medio",
+      "puntuacion": "4.5",
+      "id": 5
+    },
+    {
+      "nombre": "Salchichas",
+      "descripcion": "Salchichas fritas en aceite de oliva",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "2",
+      "dificultad": "Fácil",
+      "puntuacion": "2.5",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "nombre": "Macarrones con tomate",
+      "descripcion": "Macarrones cocidos con salsa de tomate de bote",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "20",
+      "dificultad": "Fácil",
+      "puntuacion": "3.5"
+    },
+    {
+      "id": 8,
+      "nombre": "Arroz tres delicias",
+      "descripcion": "Arroz cocido y frito con huevo, guisantes, zanahoia y jamón.",
+      "fechaAlta": "16/10/2024",
+      "tiempo": "25",
+      "dificultad": "Medio",
+      "puntuacion": "4.5"
+    },
+    {
+      "id": 9,
+      "nombre": "Salchichas",
+      "descripcion": "Salchichas fritas en aceite de oliva",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "2",
+      "dificultad": "Fácil",
+      "puntuacion": "2.5"
+    },
+    {
+      "id": 10,
+      "nombre": "Macarrones con tomate",
+      "descripcion": "Macarrones cocidos con salsa de tomate de bote",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "20",
+      "dificultad": "Fácil",
+      "puntuacion": "3.5"
+    },
+    {
+      "id": 11,
+      "nombre": "Arroz tres delicias",
+      "descripcion": "Arroz cocido y frito con huevo, guisantes, zanahoia y jamón.",
+      "fechaAlta": "16/10/2024",
+      "tiempo": "25",
+      "dificultad": "Medio",
+      "puntuacion": "4.5"
+    },
+    {
+      "id": 12,
+      "nombre": "Salchichas",
+      "descripcion": "Salchichas fritas en aceite de oliva",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "2",
+      "dificultad": "Fácil",
+      "puntuacion": "2.5"
+    },
+    {
+      "id": 13,
+      "nombre": "Macarrones con tomate",
+      "descripcion": "Macarrones cocidos con salsa de tomate de bote",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "20",
+      "dificultad": "Fácil",
+      "puntuacion": "3.5"
+    },
+    {
+      "id": 14,
+      "nombre": "Arroz tres delicias",
+      "descripcion": "Arroz cocido y frito con huevo, guisantes, zanahoia y jamón.",
+      "fechaAlta": "16/10/2024",
+      "tiempo": "25",
+      "dificultad": "Medio",
+      "puntuacion": "4.5"
+    },
+    {
+      "id": 15,
+      "nombre": "Salchichas",
+      "descripcion": "Salchichas fritas en aceite de oliva",
+      "fechaAlta": "01/01/2024",
+      "tiempo": "2",
+      "dificultad": "Fácil",
+      "puntuacion": "2.5"
+    },
+    {
+      "nombre": "pasta",
+      "descripcion": "pastapastapastapastapastapastapastapasta",
+      "id": 16
+    }
+  ],
+  "pasos_recetas": [],
+  "ingredientes": [
+    {
+      "id": 1,
+      "nombre": "Macarrones",
+      "cantidad": "100gr",
+      "kcal": 200,
+      "proteinas": 7,
+      "grasas": 5,
+      "hidratos": 10
+    },
+    {
+      "id": 2,
+      "nombre": "Tomate frito",
+      "cantidad": "100gr",
+      "kcal": 200,
+      "proteinas": 7,
+      "grasas": 5,
+      "hidratos": 10
+    }
+  ],
+  "ingredientes_recetas": [],
+  "users": [
+    {
+      "email": "manolo@mail.com",
+      "password": "$2a$10$yHZqlRkKrzcqllZddQdEi.r1o1aRKFoEyasPGsrBIMLk..j5J4EYy",
+      "id": 1
+    },
+    {
+      "email": "paco@mail.com",
+      "password": "$2a$10$NtByBEzddWZ9bW4TQbX2xe/HGduULQu6c.j2OyVZOjyEm.MH7HpQO",
+      "id": 2
+    },
+    {
+      "email": "hugo@hugo.es",
+      "password": "$2a$10$YCwJ/2Sl5QzoXjGwZ4qgBOeMwHAVqFjWodfYRLJEFBf1LvGizUBia",
+      "id": 3
+    }
+  ]
+}

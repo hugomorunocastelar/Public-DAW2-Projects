@@ -1,0 +1,26 @@
+services:
+  phpapache:
+    build: .
+    container_name: phpapache
+#    ports:
+#      - "8080:80"
+    volumes:
+      - ./public:/var/www/html
+      - ./apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    networks:
+      - red_interna
+      - red_ldap
+    environment:
+      - LDAP_SERVER=ldap
+      - LDAP_BIND_DN=cn=admin,dc=example,dc=com
+      - LDAP_PASSWORD=adminpassword
+    labels:
+      caddy: "phpapache.ahut5ldap.duckdns.org"
+      caddy.reverse_proxy: "{{upstreams}}"
+    restart: always
+
+networks:
+  red_interna:
+    external: true
+  red_ldap:
+    external: true

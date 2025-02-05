@@ -1,0 +1,14 @@
+<div class="row">
+    <!-- Botón para hacer las altas -->
+    <button type="button" class="btn btn-primary col-md-2 text-white mb-1" routerLink="../agregar">
+        <i class="bi bi-plus-lg text-white"></i>Crear
+    </button>                                
+</div> 
+
+<!-- Aquí está la tabla donde se van a insetar los resultados -->
+<app-tabla-recetas [recetas]="recetas" (onBorrar)="borrarReceta($event)"></app-tabla-recetas>
+
+<!-- Separador. Lo pongo para que la página quede mejor cuando no hay datos. -->
+<hr class="mt-2 mb-2 text-secondary"/>
+
+<app-paginador [paginaActual]="paginaActual" (onPaginaCambiada)="cambiarPagina($event)"></app-paginador>

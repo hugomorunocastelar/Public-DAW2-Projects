@@ -1,0 +1,105 @@
+
+<div class="h-100 d-flex align-items-center justify-content-center">   
+    <div id="loginForm" class="container p-0">
+        <div id="formDiv" style="height: 1200px; width: 1200px;">
+            <div id="divEmail" class="px-5 d-flex flex-column" 
+                 style="width: 400px; height: 400px; padding-top: 142px;">
+                <h4 class="text-center">Email</h4>
+                <input [(ngModel)]="credenciales.mail" type="email" class="form-control" style="width: 100%;">
+                <div style="width: 100%; height: 38px; margin-top: 60px;" class="d-flex justify-content-around align-items-center">
+                    <button (click)="moveFormToRegister()" style="height: 50px; width: 50px; border-radius: 50%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill h-100 w-100" viewBox="0 0 16 16">
+                            <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                            <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5"/>
+                        </svg>
+                    </button>
+                    <button (click)="moveFormToPassword()" style="height: 50px; width: 50px; border-radius: 50%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle h-100 w-100" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="divPassword" class="px-5 d-flex flex-column " 
+                 style="width: 400px; height: 400px; padding-top: 142px;">
+                <h4  class="text-center">Password</h4>
+                <input [(ngModel)]="credenciales.pass" type="password" class="form-control" style="width: 100%;">
+                <div style="width: 100%; height: 38px; margin-top: 60px;" class="d-flex justify-content-around align-items-center">
+                    <button id="btnLeft" (click)="moveFormToEmail()" style="height: 50px; width: 50px; border-radius: 50%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle h-100 w-100" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+                        </svg>
+                    </button>
+                    <button id="btnLogin" (click)="moveFormToValidate()" style="height: 50px; width: 50px; border-radius: 50%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle h-100 w-100" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="divLoad" class="px-5 d-flex justify-content-center align-items-center" 
+            style="width: 400px; height: 400px;">
+                <div id="loadingIcon"></div>
+            </div>
+            <div id="divResult" class="px-5 d-flex flex-column " 
+            style="width: 400px; height: 400px; padding-top: 142px;">
+
+            </div>
+            <div id="divRegister" class="p-5 d-flex flex-column justify-content-center" 
+                style="width: 400px; height: 400px;">
+                <form (ngSubmit)="null" [formGroup]="formulario" class="container" autocomplete="off">
+                    <h4 class="text-center">Register</h4>
+                    <input [(ngModel)]="registro.mail" type="email" class="form-control my-1" 
+                    style="width: 100%;" placeholder="Email" formControlName="mail">
+                    <div *ngIf="formulario.get('mail')?.invalid && formulario.get('mail')?.touched" 
+                        class="text-danger">
+                        <small *ngIf="formulario.get('mail')?.hasError('required')">Email is required.</small>
+                        <small *ngIf="formulario.get('mail')?.hasError('email')">Invalid email format.</small>
+                        <small *ngIf="formulario.get('mail')?.hasError('emailTaken')">Email is already taken.</small>
+                    </div>
+                    <input [(ngModel)]="registro.pass" type="password" class="form-control my-1" 
+                    style="width: 100%;" placeholder="Password" formControlName="pass">
+                    <div *ngIf="formulario.get('pass')?.invalid && formulario.get('pass')?.touched" 
+                        class="text-danger">
+                        <small *ngIf="formulario.get('pass')?.hasError('required')">Password is required.</small>
+                        <small *ngIf="formulario.get('pass')?.hasError('minlength')">Password must be at least 6 characters long.</small>
+                    </div>
+                    <div class="row my-1 w-100 mx-0">
+                        <input [(ngModel)]="registro.name" type="text" class="form-control col me-1"  
+                        placeholder="Name" formControlName="name">
+                        <input [(ngModel)]="registro.age" type="number" class="form-control col ms-1"  
+                        placeholder="Age" formControlName="age">
+                        <div *ngIf="formulario.get('name')?.invalid && formulario.get('name')?.touched" 
+                            class="text-danger">
+                            <small *ngIf="formulario.get('name')?.hasError('required')">Name is required.</small>
+                            <small *ngIf="formulario.get('name')?.hasError('pattern')">Name can only contain letters and spaces.</small>
+                            <small *ngIf="formulario.get('name')?.hasError('firstIsNotUppercase')">Name must start with an uppercase letter.</small>
+                            <small *ngIf="formulario.get('name')?.hasError('validateMoreThan3Characters')">Name must be at least 3 characters long.</small>
+                            <small *ngIf="formulario.get('name')?.hasError('nameNotUnique')">Name is not unique.</small>
+                        </div>
+                        <div *ngIf="formulario.get('age')?.invalid && formulario.get('age')?.touched" 
+                            class="text-danger">
+                            <small *ngIf="formulario.get('age')?.hasError('required')">Age is required.</small>
+                            <small *ngIf="formulario.get('age')?.hasError('min')">Age must be at least 18.</small>
+                            <small *ngIf="formulario.get('age')?.hasError('max')">Age must be no more than 99.</small>
+                        </div>
+                    </div>
+                    <div style="width: 100%; height: 38px; margin-top: 40px;" class="d-flex justify-content-around align-items-center">
+                        <button (click)="moveBackToLogin()" style="height: 50px; width: 50px; border-radius: 50%;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash h-100 w-100" viewBox="0 0 16 16">
+                                <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                            </svg>
+                        </button>
+                        <button (click)="validateRegister()" class="" style="height: 50px; width: 50px; border-radius: 50%;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle h-100 w-100" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

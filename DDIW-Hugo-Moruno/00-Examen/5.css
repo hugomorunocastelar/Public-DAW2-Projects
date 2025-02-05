@@ -1,0 +1,30 @@
+/*************************************************
+// Examen de DAW2 (DIW)
+// Autor: Francisco Javier Merchán Macías
+// Descripción: Fichero de estilos CSS
+// Nombre del fichero: estilos/estilos.css
+**************************************************/
+.carousel-inner
+{
+  height: 50%;
+}
+
+.carousel-item
+{
+  position: relative;
+}
+
+.carousel-item #content
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  background-color: white;
+  height: 100%;
+}
+
+img
+{
+  width: 50%;
+}

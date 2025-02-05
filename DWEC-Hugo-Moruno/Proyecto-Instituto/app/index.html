@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name</title>
+    <link
+      rel="shortcut icon"
+      href="http://localhost:3001/uploads/logo"
+      type="image/x-icon"
+    />
+
+    <!-- Google Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Own file -->
+    <link 
+      rel="stylesheet" 
+      href="./css/index.css" 
+    />
+
+    <!-- Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <!-- Own scripts -->
+    <script 
+      type="module" 
+      src="./js/app.js" 
+      defer
+    ></script>
+    <script 
+      src="./js/enviroment.js" 
+      defer
+    ></script>
+
+    <!-- Google Autotranslate scripts -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "ca,eu,gl,es,en,fr,it,pt,de",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            gaTrack: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      defer
+    ></script>
+  </head>
+
+  <body>
+
+    <!-- Info block for warnings -->
+    <div id="toastBox" class="infoBlock d-none">
+      <button class="infoBlockClose">
+
+        <!-- Warning icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-x-lg"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+          />
+        </svg>
+      </button>
+
+      <!-- Message box -->
+      <div
+        id="toast"
+        class="h-100 d-flex align-items-center justify-content-center"
+      ></div>
+    </div>
+
+    <!-- Navigation bar -->
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+
+        <!-- Logo fixed by the user -->
+        <a class="navbar-brand" href="#">
+          <img
+            id="imglogo"
+            src="http://localhost:3001/uploads/logo"
+            route="home"
+            alt="Logo"
+          />
+        </a>
+
+        <!-- Nav box, by the side -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Where the nav-links are placed -->
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+
+          <!-- Menu title -->
+          <div class="offcanvas-header">
+            <h3 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h3>
+            <div id="translate_element">
+              <div id="google_translate_element" class="google"></div>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+         
+          <!-- Nav-links -->
+          <div class="offcanvas-body d-flex flex-column">
+            <ul
+              class="navbar-nav justify-content-between h-100 fs-4 btn-group"
+              role="group"
+            >
+              <div class="flex-grow-1">
+                <li class="nav-item">
+                  <a
+                    id="idHomeIndex"
+                    class="nav-link my-3 btn btn-outline-secondary"
+                    route="home"
+                    href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="idAdminIndex"
+                    class="nav-link my-3 btn btn-outline-secondary d-none"
+                    route="admin"
+                    href="#"
+                    >Admin</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="idRolesIndex"
+                    class="nav-link my-3 btn btn-outline-secondary d-none"
+                    route="roles"
+                    href="#"
+                    >Roles Assignment</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="idControlClassesIndex"
+                    class="nav-link my-3 btn btn-outline-secondary d-none"
+                    route="controlclasses"
+                    href="#"
+                    >Control Classes</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="idProfileIndex"
+                    class="nav-link my-3 btn btn-outline-secondary d-none"
+                    route="profile"
+                    href="#"
+                    >Profile</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="idClassesIndex"
+                    class="nav-link my-3 btn btn-outline-secondary d-none"
+                    route="classes"
+                    href="#"
+                    >Classes</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="idLoginIndex"
+                    class="nav-link my-3 btn btn-outline-secondary"
+                    route="login"
+                    href="#"
+                    >Login</a
+                  >
+                </li>
+              </div>
+
+              <!-- Down-placed links -->
+              <li class="nav-item">
+                <a
+                  id="idStartIndex"
+                  class="nav-link my-3 btn btn-outline-secondary d-none"
+                  route="start"
+                  href="#"
+                  >Config</a
+                >
+              </li>
+
+              <!-- Logout section -->
+              <li class="nav-item d-flex justify-content-between">
+                <div
+                  class="d-flex align-items-center justify-content-center w-100"
+                >
+                  <p id="loginEmail" class="fs-6 h-auto m-0"></p>
+                </div>
+                <button
+                  id="idLogoutIndex"
+                  class="btn btn-outline-danger my-3 px-4 btn btn-outline-secondary d-none"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Body content -->
+    <main id="pageContent"></main>
+  </body>
+</html>

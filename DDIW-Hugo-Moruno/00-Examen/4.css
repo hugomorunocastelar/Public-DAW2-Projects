@@ -1,0 +1,25 @@
+/*************************************************
+// Examen de DAW2 (DIW)
+// Autor: Francisco Javier Merchán Macías
+// Descripción: Fichero de estilos CSS
+// Nombre del fichero: estilos/estilos.css
+**************************************************/
+
+#cards
+{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+
+.card  a
+{
+  text-decoration: none;
+  color: white;
+}
+
+.card img
+{
+  width: 400px;
+  object-fit: cover;
+}

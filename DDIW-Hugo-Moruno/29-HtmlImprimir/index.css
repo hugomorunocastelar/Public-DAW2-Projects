@@ -1,0 +1,130 @@
+@media screen {
+
+  html, body
+  {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  nav
+  {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav > img
+  {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  nav > div
+  {
+    width: 100%;
+    color: white;
+    background-color: rgb(67, 69, 87);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  section
+  {
+    height: 300px;
+    width: 100%;
+    position: relative;
+  }
+
+  section img
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: 100%; 
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  section > div
+  {
+    position: absolute;
+    width: 30%;
+    height: 300px;
+    padding: 0 15px;
+    z-index: 2;
+    color: white;
+    background-color: rgba(7, 7, 7, 0.521);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  section > div:nth-child(odd)
+  {
+    top: 0;
+    right: 0;
+  }
+
+}
+
+@media print {
+  
+  nav
+  {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  nav > img
+  {
+    width: 50%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  nav > div
+  {
+    padding: 0 15px;
+  }
+
+  main
+  {
+    display: flex;
+    flex-direction: column;
+  }
+
+  section
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  section > img
+  {
+    height: 100px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  section > div 
+  {
+    padding: 0 15px;
+  }
+
+}

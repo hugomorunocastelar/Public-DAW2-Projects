@@ -1,0 +1,92 @@
+.container-form {
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.items-form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    margin: 4px 0px;
+}
+
+.items-form-label {
+    font-weight: bold;
+}
+.items-form-input-group {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fcfcd3;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/*input[type="text"] {*/
+/*    padding: 10px;*/
+/*    background-color: #fcfcd3;*/
+/*    border-radius: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    width: 100%;*/
+/*    box-sizing: border-box;*/
+/*    transition: border-color 0.3s ease; !* Transición suave para el cambio de color *!*/
+/*    transition: background-color 0.9s ease; !* Transición suave para el cambio de color *!*/
+/*}*/
+
+/*input[type="text"]:focus {*/
+/*    background-color: #ffffff;*/
+/*    border-color: orange;*/
+/*    outline: none; !* Opcional: elimina el borde por defecto que algunos navegadores añaden *!*/
+/*}*/
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="file"],
+select, textarea{
+    padding: 10px;
+    background-color: #fcfcd3;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Transición suave para el cambio de color */
+    transition: background-color 0.9s ease; /* Transición suave para el cambio de color */
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus, textarea:focus {
+    background-color: #ffffff;
+    border-color: orange;
+    outline: none; /* Opcional: elimina el borde por defecto que algunos navegadores añaden */
+}
+
+/*select{*/
+/*    padding: 10px;*/
+/*    background-color: #fcfcd3;*/
+/*    border-radius: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    width: 100%;*/
+/*    box-sizing: border-box;*/
+/*    transition: border-color 0.3s ease; !* Transición suave para el cambio de color *!*/
+/*    transition: background-color 0.9s ease; !* Transición suave para el cambio de color *!*/
+/*}*/
+
+
+td, th {
+    padding: 4px 5px;
+}
+thead tr {
+    color: #e8e8b9;
+    background-color: #3d3d10;
+}
+tbody tr:nth-child(even) {
+    background-color: #e8e8b9;
+}

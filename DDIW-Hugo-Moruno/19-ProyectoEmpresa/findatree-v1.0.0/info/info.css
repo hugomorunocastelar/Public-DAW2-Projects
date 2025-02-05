@@ -1,0 +1,19 @@
+
+#seccion
+{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section
+{
+  width: 70%;
+  font-size: x-large;
+  background-color: rgb(205, 221, 168);
+  border: rgb(202, 186, 151) 2px solid;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 15px 100px;
+}

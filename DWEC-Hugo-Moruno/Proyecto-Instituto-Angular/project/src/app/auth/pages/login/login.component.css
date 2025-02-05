@@ -1,0 +1,121 @@
+#loginForm
+{
+  position: relative;
+  z-index: 3;
+  height: 0px; 
+  width: 0px; 
+  overflow: hidden; 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255,211,160,1) 0%, rgba(255,149,122,1) 33%, rgba(249,218,122,1) 88%); 
+}
+
+@keyframes pulseFailed {
+  0% 
+  {
+      opacity: 1.0;
+  }
+  50% 
+  {
+    opacity: 0.5;
+  }
+  100% 
+  {
+    opacity: 1.0;
+  }
+}
+
+.failedAndPulse
+{
+  animation: 2s infinite linear pulseFailed;
+}
+
+#formDiv
+{
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-template-rows: 400px 400px 400px;
+  grid-gap:0; 
+  background: rgb(165,219,105);
+  background: linear-gradient(132deg, rgba(165,219,105,1) 12%, rgba(223,240,190,1) 49%, rgba(205,241,221,1) 88%); 
+}
+
+#formDiv button
+{
+  color: darkseagreen;
+  border: none;
+  background-color: transparent;
+  transition: color 0.3s ease;
+}
+
+#formDiv button:hover
+{
+  color: darkgreen;
+}
+
+#formDiv input
+{
+  text-align: center;
+}
+
+@keyframes pulseLoading {
+  0% 
+  {
+    rotate: 0deg;
+    transform: scale(0.75);
+  }
+  10% { transform: scale(0.775); }
+  40% { transform: scale(1.225); }
+  50% {
+    rotate: 180deg;
+    transform: scale(1.25);
+  }
+  60% { transform: scale(1.225); }
+  90% { transform: scale(0.775); }
+  100% 
+  {
+    rotate: 360deg;
+    transform: scale(0.75);
+  }
+}
+
+#loadingIcon
+{
+  width: 200px;
+  height: 200px;
+  background: rgb(205,255,235);
+  background: linear-gradient(135deg, rgba(205,255,235,1) 0%, rgba(228,245,181,1) 33%, rgba(144,230,181,1) 88%); 
+  border-radius: 50%;
+  animation: 3s infinite linear pulseLoading;
+}
+
+#divEmail
+{
+  grid-area: 1 / 2 / 2 / 3 ;
+}
+
+#divRegister
+{
+  grid-area: 2 / 2 / 3 / 3 ;
+}
+
+#divPassword
+{
+  rotate: 90deg;
+  grid-area: 2 / 3 / 3 / 4 ;
+}
+
+#divLoad
+{
+  rotate: -180deg;
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+#divResult
+{
+  rotate: -90deg;
+  grid-area: 2 / 1 / 3 / 2;
+}

@@ -1,0 +1,37 @@
+html
+{
+    height: 98%;
+    width: 99%;
+}
+body
+{
+    height: 100%;
+    width: 100%;
+}
+p
+{
+    margin: 0px;
+    width: fit-content;
+}
+main
+{
+    max-width: 1030px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    grid-area: auto;
+}
+div
+{
+    margin: 10px;
+    background-color: grey;
+    min-height: 200px;
+    border-radius: 5px;
+    font-size: 50px;
+    padding: 25px;
+}
+div:nth-child(even)
+{
+    background-color: lightgrey;
+}

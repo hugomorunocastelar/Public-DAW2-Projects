@@ -1,0 +1,47 @@
+html
+{
+    text-align: center;
+}
+
+    p
+{
+    margin: 0px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.texto
+{
+    height: inherit;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+header
+{
+    background-color: aqua;
+    height: 10vh;
+}
+aside
+{
+    background-color: yellow;
+    width: 19vw;
+    height: 80vh;
+    float: left;
+}
+main
+{
+    background-color: green;
+    width: 79vw;
+    height: 80vh;
+    float: right;
+}
+footer
+{
+    background-color: blue;
+    height: 9vh;
+    width: 98.8%;
+    position: absolute;
+    bottom: 0%;
+}

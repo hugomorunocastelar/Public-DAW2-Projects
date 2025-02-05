@@ -1,0 +1,34 @@
+@import url('./color.css');
+
+#navegacion {
+    background-color: var(--colorCabecero);
+    height: 100px;
+    padding: 10px 20px;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.toggle-btn:hover {
+    background-color: var(--colorAside);
+    color: black;
+}
+
+nav a {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}

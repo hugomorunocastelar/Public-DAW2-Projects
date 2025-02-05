@@ -1,0 +1,65 @@
+#menuContent
+{
+  height: 100%;
+  width: 100%;
+}
+#menuContent svg
+{
+  color: white;
+}
+#menuContentOrganizator
+{
+  height: 100%;
+  width: 100%;
+}
+
+#menuOptions
+{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+#menuOptions > *
+{
+  background-color: transparent;
+  border: none;
+  margin: 10px 0;
+}
+#menuOptions svg
+{
+  height: 50px;
+  width: 50px;
+}
+#menuProfile
+{
+  position: relative;
+  top: 140px;
+  height: 200px;
+  width: 100%;
+  padding: 10px;  
+}
+#menuProfileContent
+{
+  width: 100%;
+}
+#menuProfileToggleButton > svg
+{
+  rotate: 180deg;
+  height: 50px;
+  width: 50px;
+}
+#menuProfileToggleButton:hover
+{
+  cursor: pointer;
+}
+#menuProfile button
+{
+  background-color: transparent;
+  margin: 5px 0;
+  border: none;
+}
+#menuProfile button > svg
+{
+  height: 50px;
+  width: 50px;
+}

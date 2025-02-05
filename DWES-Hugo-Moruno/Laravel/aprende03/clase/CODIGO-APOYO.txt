@@ -1,0 +1,782 @@
+========================================================================
+- MIGRACIÓN de clientes
+========================================================================
+---
+Schema::create('clientes', function (Blueprint $table) {
+    $table->id();
+    $table->string('nif', 12)->unique();
+    $table->string('nombre', 20);
+    $table->string('apellido1', 20);
+    $table->string('apellido2', 20)->nullable();
+    $table->date('fecha_nacimiento')->nullable();
+    $table->string('foto',200)->nullable();
+    $table->text('observaciones')->nullable();
+    $table->boolean('active')->default(true);
+    $table->timestamps();
+    $table->softDeletes();
+});
+}
+---
+
+========================================================================
+- FACTORY CLIENTES
+========================================================================
+---
+public function definition(): array
+{
+    return [
+        'nif' => fake()->regexify('[0-9]{8}[A-Z]{1}'),
+        'nombre' => fake()->firstName(),
+        'apellido1' => fake()->lastName(),
+        'apellido2' => fake()->optional()->lastName,
+        'fecha_nacimiento' => $this->faker->optional()->date(),
+        // 'foto' => $this->faker->optional()->imageUrl(100, 100, 'people'),
+        'observaciones' => $this->faker->optional()->paragraph,
+        'active' => $this->faker->boolean(90),
+    ];
+}
+---
+
+========================================================================
+- LAYOUT layouts/app.blade.php
+========================================================================
+---
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Styles -->
+    @livewireStyles
+</head>
+<body class="font-sans antialiased">
+
+<div class="min-h-screen bg-gray-100">
+
+    <x-menus.menu-admin/>
+
+    <header>
+        <!-- Page Heading -->
+        @if (isset($header))
+            <header class="bg-white shadow">
+                <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
+
+        {{-- Mensajes flash--}}
+{{--
+        <x-alerts.alert-success>{{session('alertSuccess')??null}}</x-alerts.alert-success>
+        <x-alerts.alert-error>{{session('alertError')??null}}</x-alerts.alert-error>
+        <x-alerts.alert-warning>{{session('alertWarning')??null}}</x-alerts.alert-warning>
+        <x-alerts.alert-info>{{session('alertInfo')??null}}</x-alerts.alert-info>
+--}}
+    </header>
+
+    <!-- Page Content -->
+    <main>
+        {{ $slot }}
+    </main>
+</div>
+
+@stack('modals')
+
+@livewireScripts
+</body>
+</html>
+---
+
+========================================================================
+- LAYOUT layouts/guest.blade.php
+========================================================================
+
+---
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Styles -->
+    @livewireStyles
+</head>
+<body class="font-sans antialiased">
+
+<div class="min-h-screen bg-gray-100">
+
+    <x-menus.menu-main/>
+
+    <!-- Page Heading -->
+    @if (isset($header))
+        <header class="bg-white shadow">
+            <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+    @endif
+
+    <!-- Page Content -->
+    <main>
+        {{ $slot }}
+    </main>
+</div>
+
+@stack('modals')
+
+@livewireScripts
+</body>
+</html>
+---
+
+========================================================================
+- COMPONENTE components/menus/menu-admin.blade.php
+========================================================================
+---
+<nav x-data="{ open: false }" class="bg-teal-100 border-b border-teal-100">
+    <!-- Primary Navigation Menu -->
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="route('home')">
+                        <x-share.application-logo class="block h-9 w-auto fill-current text-teal-800" />
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Inicio') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.clientes.index')" :active="request()->routeIs('admin.clientes.index')">
+                        {{ __('Clientes') }}
+                    </x-nav-link>
+                </div>
+            </div>
+
+            <!-- Settings Dropdown -->
+            <div class="hidden sm:flex sm:items-center sm:ms-6">
+                @auth
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-teal-500 bg-teal-100 hover:text-teal-700 focus:outline-none transition ease-in-out duration-150">
+                                <div>{{ Auth::user()->name }}</div>
+
+                                <div class="ms-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-dropdown-link href="{{ route('profile.show') }}">
+                                {{ __('Profile') }}
+                            </x-dropdown-link>
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+                                <x-dropdown-link href="{{ route('logout') }}"
+                                                 @click.prevent="$el.closest('form').submit()">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </x-slot>
+                    </x-dropdown>
+                @else
+                    <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                @endauth
+            </div>
+
+            <!-- Hamburger -->
+            <div class="-me-2 flex items-center sm:hidden">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-teal-400 hover:text-teal-500 hover:bg-teal-100 focus:outline-none focus:bg-teal-100 focus:text-teal-500 transition duration-150 ease-in-out">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Responsive Navigation Menu -->
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                {{ __('Inicio') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('admin.clientes.index')" :active="request()->routeIs('admin.clientes.index')">
+                {{ __('Clientes') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('admin.dashboard.index')" :active="request()->routeIs('admin.dashboard.index')">
+                {{ __('Administración') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <!-- Responsive Settings Options -->
+        <div class="pt-4 pb-1 border-t border-teal-200">
+            <div class="px-4">
+                <div class="font-medium text-base text-teal-800">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-sm text-teal-500">{{ Auth::user()->email }}</div>
+            </div>
+
+            <div class="mt-3 space-y-1">
+                <x-dropdown-link href="{{ route('profile.show') }}">
+                    {{ __('Profile') }}
+                </x-dropdown-link>
+
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    @csrf
+                    <x-dropdown-link href="{{ route('logout') }}"
+                                     @click.prevent="$el.closest('form').submit()">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+---
+
+========================================================================
+- COMPONENTE components/menus/menu-main.blade.php
+========================================================================
+---
+<nav x-data="{ open: false }" class="bg-lime-100 border-b border-lime-100">
+    <!-- Primary Navigation Menu -->
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="route('home')">
+                        <x-share.application-logo class="block h-9 w-auto fill-current text-lime-800" />
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Inicio') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('mis-viajes')" :active="request()->routeIs('mis-viajes')">
+                        {{ __('Mis Viajes') }}
+                    </x-nav-link>
+                </div>
+
+                {{--Muestra el menu si es un administrador--}}
+                @role('ADMIN')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.dashboard.index')" :active="request()->routeIs('admin.dashboard.index')">
+                        {{ __('Administración') }}
+                    </x-nav-link>
+                </div>
+                @endrole
+
+            </div>
+
+            <!-- Settings Dropdown -->
+            <div class="hidden sm:flex sm:items-center sm:ms-6">
+                @auth
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-teal-500 bg-teal-100 hover:text-teal-700 focus:outline-none transition ease-in-out duration-150">
+                                <div>{{ Auth::user()->name }}</div>
+
+                                <div class="ms-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('profile.show')">
+                                {{ __('Perfil') }}
+                            </x-dropdown-link>
+
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+                                <x-dropdown-link href="{{ route('logout') }}"
+                                                 @click.prevent="$el.closest('form').submit()">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </x-slot>
+                    </x-dropdown>
+                @else
+                    <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Entrar</a>
+                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
+                @endauth
+            </div>
+
+            <!-- Hamburger -->
+            <div class="-me-2 flex items-center sm:hidden">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-lime-400 hover:text-lime-500 hover:bg-lime-100 focus:outline-none focus:bg-lime-100 focus:text-lime-500 transition duration-150 ease-in-out">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Responsive Navigation Menu -->
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                {{ __('Inicio') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('mis-viajes')" :active="request()->routeIs('mis-viajes')">
+                {{ __('Mis viajes') }}
+            </x-responsive-nav-link>
+        </div>
+        @role('Administrador')
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('admin.dashboard.index')" :active="request()->routeIs('admin.dashboard.index')">
+                {{ __('Administración') }}
+            </x-responsive-nav-link>
+        </div>
+        @endrole
+
+        <!-- Responsive Settings Options -->
+        <div class="pt-4 pb-1 border-t border-lime-200">
+            @auth()
+                <div class="px-4">
+                    <div class="font-medium text-base text-lime-800">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-lime-500">{{ Auth::user()->email }}</div>
+                </div>
+            @endauth
+
+            <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('profile.show')">
+                    {{ __('Profile') }}
+                </x-responsive-nav-link>
+
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    @csrf
+                    <x-dropdown-link href="{{ route('logout') }}"
+                                     @click.prevent="$el.closest('form').submit()">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+---
+
+========================================================================
+- COMPONENTE components/buttons/button-table.blade.php
+========================================================================
+---
+@props(['action'=>''])
+
+@switch($action)
+    @case('show')
+        <button type="button"
+            {{ $attributes->merge(['class' => 'bg-cyan-400 hover:bg-cyan-100 w-6 rounded']) }}>
+            <i class="fa-solid fa-eye"></i>
+        </button>
+        @break
+    @case('update')
+        <button type="button"
+            {{ $attributes->merge(['class' => 'bg-indigo-600 hover:bg-indigo-400 text-white w-6 rounded']) }}>
+            <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        @break
+    @case('delete')
+        <button type="button"
+            {{ $attributes->merge(['class' => 'bg-red-600 hover:bg-red-400 text-white w-6 rounded']) }}>
+            <i class="fa-solid fa-trash"></i>
+        </button>
+        @break
+@endswitch
+---
+
+========================================================================
+- COMPONENTE components/button/button-form-save.blade.php
+========================================================================
+---
+@if (!empty(trim($slot)))
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show"
+         class="float-left ml-1">
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-900  px-4 py-2" role="alert">
+            <p><i class="fa-solid fa-triangle-exclamation"></i> {{$slot}}</p>
+        </div>
+    </div>
+@endif
+---
+
+
+========================================================================
+- COMPONENTE components/share/confirm-delete.blade.php
+========================================================================
+---
+@props(['open' => false, 'url'])
+
+<div class="inline-block" x-data="{ open: {{ $open ? 'true' : 'false' }} }">
+
+    <x-buttons.button-table action="delete" @click="open = true"/>
+
+    <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="fixed inset-0 z-50 overflow-y-auto"
+            style="display: none;"
+    >
+        {{-- Fondo oscuro --}}
+        <div class="fixed inset-0 bg-black opacity-50"></div>
+
+        {{-- Contenido del modal --}}
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <form action="{{$url}}" method="post">
+                @csrf
+                @method('DELETE')
+
+                <div
+                        class="relative bg-white rounded-lg w-full max-w-md p-6"
+                        @click.away="open = false"
+                >
+                    {{-- Botón cerrar --}}
+                    <button
+                            @click="open = false"
+                            class="absolute top-4 right-4 text-gray-400 hover:text-gray-500"
+                    >
+                        <span class="sr-only">Cerrar</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+
+                    {{-- Título del modal --}}
+                    <div class="text-xl font-semibold mb-4">
+                        Confirmación del borrado
+                    </div>
+
+                    {{-- Contenido del modal --}}
+                    <div class="mt-2">
+
+                        {!! $slot !!}
+
+                    </div>
+
+                    {{-- Pie del modal --}}
+                    <div class="mt-4 flex justify-end space-x-3">
+
+                        <button type="button"
+                                @click="open = false"
+                                class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                        >
+                            Cerrar
+                        </button>
+
+                        <button type="submit"
+                                @click="open = false"
+                                class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                        >
+                            Borrar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+---
+
+========================================================================
+- COMPONENTE components/alerts/alert-error.blade.php
+========================================================================
+---
+@if (!empty(trim($slot)))
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show"
+         class="float-left ml-1">
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-900  px-4 py-2" role="alert">
+            <p><i class="fa-solid fa-triangle-exclamation"></i> {{$slot}}</p>
+        </div>
+    </div>
+@endif
+---
+
+========================================================================
+- COMPONENTE components/alerts/alert-info.blade.php
+========================================================================
+---
+@if (!empty(trim($slot)))
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show"
+         class="float-left ml-1">
+        <div class="bg-cyan-100 border-l-4 border-cyan-500 text-cyan-900 px-4 py-2" role="alert">
+            <p><i class="fa-solid fa-info"></i> {{$slot}}</p>
+        </div>
+    </div>
+@endif
+---
+
+========================================================================
+- COMPONENTE components/alerts/alert-success.blade.php
+========================================================================
+---
+@if (!empty(trim($slot)))
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show"
+         class="float-left ml-1">
+        <div class="bg-emerald-100 border-l-4 border-emerald-500 text-emerald-900 px-4 py-2" role="alert">
+            <p><i class="fa-solid fa-thumbs-up"></i> {{$slot}}</p>
+        </div>
+    </div>
+@endif
+---
+
+========================================================================
+- COMPONENTE components/alerts/alert-warning.blade.php
+========================================================================
+---
+@if (!empty(trim($slot)))
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show"
+         class="float-left ml-1">
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 px-4 py-2" role="alert">
+            <p><i class="fa-solid fa-thumbs-up"></i> {{$slot}}</p>
+        </div>
+    </div>
+@endif
+---
+
+========================================================================
+- COMPONENTE components/imputs/input-text-label.blade.php
+========================================================================
+---
+@props(['name','label','item', 'readonly'=>false])
+<div class="w-full">
+    @isset($label)
+        <label class="text-xs block font-bold text-blue-900 mr-2 p-1">{{$label}}</label>
+    @endisset
+    <input  type="text"
+        @isset($name)  name="{{$name}}" @endisset
+        @if($readonly) readonly @endif
+        value="{{old($name,$item)}}"
+           {{ $attributes->merge(['class' => 'w-full px-2 py-1 border border-emerald-300 rounded']) }}>
+    @error("$name") <div class="block px-2 italic text-xs text-red-500 font-s text-left">{!!  $message !!}</div> @enderror
+</div>
+---
+
+========================================================================
+- COMPONENTE components/imputs/input-image-label.blade.php
+========================================================================
+---
+@props(['id','name','label','routeImage', 'readonly'=>false])
+<div class="w-full" x-data="showImage()">
+    @isset($label)
+        <label for="{{$id}}" class="text-xs block font-bold text-blue-900 mr-2 p-1">{{$label}}</label>
+    @endisset
+    @if($readonly)
+        @if (!empty($item))
+            <img src="{{$routeImage}}" class="object-cover max-h-32 mx-auto mt-2 max-w-32 text-center bg-white border p-1 shadow-lg rounded-lg">
+        @else
+            <img src="{{ asset('images/imagen_no_disponible.png') }}" class="object-cover max-h-32 mx-auto mt-2 max-w-32 text-center bg-white border p-1 shadow-lg rounded-lg">
+        @endif
+    @else
+        {{--Estilo obtenido de https://tw-elements.com/docs/standard/forms/file-input/--}}
+        <div class="text-center">
+            <input @change="showPreview(event)"
+                   id="{{$id}}" @isset($name)  name="{{$name}}" @endisset type="file"
+                {{ $attributes->merge(['class' => 'relative m-0 block w-full min-w-0 flex-auto rounded border
+                    border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base
+                    font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem]
+                    file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit
+                    file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150
+                    file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200
+                    focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600
+                    dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary']) }}>
+            <img id="preview" class="object-cover max-h-32 mx-auto mt-2 max-w-32 text-center bg-white border p-1 shadow-lg rounded-lg"
+                 @if (!empty($item))
+                     src="{{$routeImage}}"
+                @endif
+            >
+        </div>
+    @endif
+    @error("$name") <div class="block px-2 italic text-xs text-red-500 font-s text-left">{!!  $message !!}</div> @enderror
+
+        <script>
+            function showImage() {
+                return {
+                    showPreview(event) {
+                        if (event.target.files.length > 0) {
+                            var src = URL.createObjectURL(event.target.files[0]);
+                            var preview = document.getElementById("preview");
+                            preview.src = src;
+                            preview.style.display = "block";
+                        }
+                    }
+                }
+            }
+        </script>
+</div>
+{{--Previsializacion--}}
+{{--https://larainfo.com/blogs/laravel-9-image-upload-with-preview-using-tailwind-css-alpine-js--}}
+---
+
+========================================================================
+- COMPONENTE components/imputs/textarea-label.blade.php
+========================================================================
+---
+@props(['id','name','label','item', 'readonly'=>false])
+<div class="w-full">
+    @isset($label)
+        <label for="{{$id}}" class="text-xs block font-bold text-blue-900 mr-2 p-1">{{$label}}</label>
+    @endisset
+    <textarea id="{{$id}}"
+        @isset($name)  name="{{$name}}" @endisset
+        @if($readonly) readonly @endif
+       {{ $attributes->merge(['class' => 'w-full px-2 py-1 border border-emerald-300 rounded']) }}>{{old("$name",$item)}}</textarea>
+    @error("$name") <div class="block px-2 italic text-xs text-red-500 font-s text-left">{!!  $message !!}</div> @enderror
+</div>
+---
+
+========================================================================
+- PARTIALS - admin/clientes/partials/list.blade.php
+========================================================================
+---
+<div>
+    <table class="w-full bg-white shadow-lg">
+        <thead>
+        <tr class="border-b-2 border-orange-500 py-4 uppercase">
+            <th class="py-2">Nif</th>
+            <th class="py-2 text-left">Nombre</th>
+            <th class="py-2 w-32">Alta</th>
+            <th class="py-2 w-32">Foto</th>
+            <th class="py-2 w-32">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($clientes as $cliente)
+            <tr class="even:bg-gray-100 odd:bg-white">
+                <td class="py-1 px-2 text-center">{{$cliente->nif}}</td>
+                <td class="py-1 px-2">
+                    {{$cliente->apellido1}} {{$cliente->apellido2}}, {{$cliente->nombre}}
+                </td>
+                <td class="py-1 px-2 text-center">{{date('d/m/Y',strtotime($cliente->created_at))}}</td>
+                <td class="py-1 px-2 text-center align-middle">
+                    FOTO
+                </td>
+                <td class="py-1 px-2 text-center">
+                    <a href="{{route('admin.clientes.show',$cliente->id)}}">
+                        <x-buttons.button-table action="show"/>
+                    </a>
+                    <a href="{{route('admin.clientes.edit',$cliente->id)}}">
+                        <x-buttons.button-table action="update"/>
+                    </a>
+                    <x-share.confirm-delete :open="false" :url="route('admin.clientes.destroy',$cliente->id)">
+
+                        <p>¿Confirme el borrado del cliente de nif {{ $cliente->nif }}.</p>
+
+                    </x-share.confirm-delete>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    {{ $clientes->links() }}
+</div>
+---
+
+========================================================================
+- PARTIALS - admin/clientes/partials/form.blade.php
+========================================================================
+---
+@props(['cliente','submit'=>true,'readonly'=>false])
+
+<div class="mx-auto px-8">
+
+    <div class="w-full border p-2 bg-white shadow-lg rounded-lg grid grid-cols-12 gap-2">
+        <div class="col-span-12 p-1 bg-gray-300 uppercase tracking-widest font-semibold text-lg text-center">
+            {{ $title }}
+        </div>
+        <!-- Primera fila: Nif -->
+        <div class="col-span-12 md:col-span-3">
+            <x-inputs.input-text-label id="nif" name="nif" label="Nif"
+                                       :item="$cliente->nif" readonly="{{$readonly}}"/>
+        </div>
+        <div class="col-span-none md:col-span-9"></div>
+
+        <!-- Segunda fila: Nombre, Apellido1, Apellido2 -->
+        <div class="col-span-12 md:col-span-4">
+            <x-inputs.input-text-label id="nombre" name="nombre" label="Nombre"
+                                       :item="$cliente->nombre" readonly="{{$readonly}}"/>
+        </div>
+        <div class="col-span-12 md:col-span-4">
+            <x-inputs.input-text-label id="apellido1" name="apellido1" label="Apellido 1º"
+                                       :item="$cliente->apellido1" readonly="{{$readonly}}"/>
+        </div>
+        <div class="col-span-12 md:col-span-4">
+            <x-inputs.input-text-label id="apellido2" name="apellido2" label="Apellido 2º"
+                                       :item="$cliente->apellido2" readonly="{{$readonly}}"/>
+        </div>
+
+        <!-- Tercera fila: fecha nacimiento, foto -->
+        <div class="col-span-12 md:col-span-4">
+            <x-inputs.input-text-label id="fechaNacimiento" name="fecha_nacimiento" label="Fecha nac."
+                                       :item="$cliente->fecha_nacimiento" type="date" readonly="{{$readonly}}"/>
+        </div>
+        <div class="col-span-12 md:col-span-2"></div>
+        <div class="col-span-12 md:col-span-6">
+            <x-inputs.input-image-label id="foto" name="foto" label="Foto"
+                                        :item="$cliente->foto" readonly="{{$readonly}}"/>
+        </div>
+
+        <!-- Cuarta fila: observaciones -->
+        <div class="col-span-12 md:col-span-12>
+            <x-inputs.textarea-label id=" observaciones
+        " name="observaciones" label="Observaciones"
+        :item="$cliente->observaciones" readonly="{{$readonly}}"/>
+
+
+        @if($submit)
+            <div class="col-span-12 text-right p-1 bg-gray-300">
+                <x-buttons.button-form-save/>
+            </div>
+        @endif
+    </div>
+
+
+</div>
+---

@@ -1,0 +1,33 @@
+<script src="pages\formulario\formulario_recetas.mjs" type="module"></script>
+
+<form class="container" id="formRecetas">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="name" class="form-control" id="nombre" name="nombre" validar="01vacio">
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" validar="01vacio">
+    </div>
+    <div class="mb-3">
+        <label for="fechaalta" class="form-label">Fecha de alta</label>
+        <input type="date" class="form-control" id="fechaalta" name="fechaalta" validar="01vacio0">
+    </div>
+    <div class="mb-3">
+        <label for="tiempo" class="form-label">Tiempo (Minutos)</label>
+        <input type="number" class="form-control" id="tiempo" name="tiempo" validar="01vacio, 02numero">
+    </div>
+    <div class="mb-3">
+        <select class="form-select" name="dificultad">
+            <option selected>Dificultad</option>
+            <option value="facil">Fácil</option>
+            <option value="media">Intermedia</option>
+            <option value="dificil">Dificil/option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="puntuacion" class="form-label">Puntuación</label>
+        <input type="number" class="form-control" id="puntuacion" name="puntuacion" validar="02numero">
+    </div>
+    <button id="submit" type="submit" class="btn btn-primary">Guardar</button>
+</form>

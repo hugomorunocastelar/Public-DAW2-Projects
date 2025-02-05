@@ -1,0 +1,27 @@
+html
+{
+    height: 98%;
+    width: 99%;
+}
+body
+{
+    height: 100%;
+    width: 100%;
+}
+p
+{
+    margin: 0px;
+}
+table
+{
+    border: 1px solid black;
+}
+td
+{
+    height: fit-content;
+    border: 1px solid black;
+}
+thead
+{
+    font-weight: bold;
+}

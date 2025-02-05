@@ -1,0 +1,42 @@
+@keyframes girar{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.izquierda
+{ 
+    border: white solid 10px;
+    width: 17vw; 
+    height: 95vh; 
+    text-align: center; 
+    background-color:lightblue;
+    font-size: 40px;
+    writing-mode: vertical-lr;
+    animation: girar 2s linear infinite;
+}
+
+.centro
+{
+    border: white solid 10px;
+    width: 65vw; 
+    height: 95vh;
+    text-align: center; 
+    background-color:lightgreen;
+    font-size: 60px;
+}
+
+.derecha
+{
+    border: white solid 10px;
+    width: 17vw; 
+    height: 95vh; 
+    text-align: center;
+    background-color: lightcoral;
+    font-size: 40px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}

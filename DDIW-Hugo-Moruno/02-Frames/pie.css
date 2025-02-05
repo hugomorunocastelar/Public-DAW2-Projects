@@ -1,0 +1,30 @@
+html
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 
+{
+    width: fit-content;
+    color: white;
+}
+h4  
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.foot-body
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.foot-content
+{
+    width: 1000px;
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,78 @@
+html, body
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    
+}
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+     grid-template-rows:  1fr 1fr 1fr; 
+    grid-template-areas: 
+    "d1 d1 d1 d1"
+    "d2 d2 d3 d3"
+    "d2 d2 d4 d5"
+}
+div
+{
+    margin: 10px;
+    background-color: grey;
+    color: white;
+    min-width: 200px;
+    min-height: 200px;
+    border-radius: 5px;
+    font-size: 50px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div:nth-child(1)
+{
+    grid-area: d1;
+}
+div:nth-child(2)
+{
+    grid-area: d2;
+}
+div:nth-child(3)
+{
+    grid-area: d3;
+}
+div:nth-child(4)
+{
+    grid-area: d4;
+}
+div:nth-child(5)
+{
+    grid-area: d5;
+}
+div:nth-child(6)
+{
+    grid-area: d6;
+}
+div:nth-child(7)
+{
+    grid-area: d7;
+}
+div:nth-child(8)
+{
+    grid-area: d8 ;
+}
+div:nth-child(9)
+{
+    grid-area: d9;
+}
+p
+{
+    margin: 0px;
+    width: fit-content;
+}

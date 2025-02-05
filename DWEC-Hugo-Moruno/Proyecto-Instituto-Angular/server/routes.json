@@ -1,0 +1,6 @@
+{
+    "/users*": "/600/users$1",
+    "/allUsers*": "/660/users$1",
+    "/allRoles*": "/660/rol$1",
+    "/allClasses*": "/660/class$1"
+}

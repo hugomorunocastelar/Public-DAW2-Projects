@@ -1,0 +1,26 @@
+<div id="document" class="d-flex align-items-center justify-content-center">   
+  <div id="window">
+    <div id="upperBar" class="p-2">
+      <div id="upperBarOrganizator" class="h-100 d-flex justify-content-between align-items-center">
+        <div id="upperBarLights" class="h-fit d-flex justify-content-around">
+          <div id="upperBarRedLight"></div>
+          <div id="upperBarYellowLight"></div>
+          <div id="upperBarGreenLight"></div>
+        </div>
+        <div id="pageTitle" class="pe-4">
+          <p id="pageTitleText" class="m-0 text-white">{{ pageTitle }}</p>
+        </div>
+      </div>
+    </div>
+    <div id="contentOrganizator">
+      <aside id="menuBar">
+        <app-menu></app-menu>
+      </aside>
+      <main id="appContainer" >
+        <div id="appContainerOrganizator" class="h-100" style="overflow-y: scroll;">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

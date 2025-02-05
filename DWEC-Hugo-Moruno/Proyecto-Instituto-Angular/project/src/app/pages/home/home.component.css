@@ -1,0 +1,95 @@
+#document
+{
+  height: 100vh;
+  border: 1px solid #000;
+  padding: 50px;
+}
+
+#window
+{
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  max-width: 1200px;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+}
+
+#upperBar
+{
+  height: 50px;
+  background-color: rgb(143, 185, 137);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+#upperBarLights > *
+{
+  height: 20px;
+  width: 20px;
+  border-radius: 50% ;
+  margin: 0 13px;
+}
+
+@keyframes lights {
+  0%
+  {
+    transform: scale(0.8);
+  }
+  50%
+  {
+    transform: scale(1);
+  }
+  100%
+  {
+    transform: scale(0.8);
+  }
+}
+
+#upperBarRedLight
+{
+  background-color: lightcoral;
+  animation: 4s infinite lights;
+}
+
+#upperBarYellowLight
+{
+  background-color: lightgoldenrodyellow;
+  animation: 3.8s infinite lights;
+}
+
+#upperBarGreenLight
+{
+  background-color: lightgreen;
+  animation: 4.2s infinite lights;
+}
+
+#contentOrganizator
+{
+  display: flex;
+  height: calc(100% - 50px);
+  width: 100%;
+}
+
+#menuBar
+{
+  background-color: rgb(123, 156, 118);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 15px; 
+  height: 100%;
+  border-radius: 0 0 0 10px;
+  width: 150px;
+}
+
+#menuBarOrganizer
+{
+  height: 100%;
+  border-radius: 0 0 0 10px;
+}
+
+#appContainer
+{
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}

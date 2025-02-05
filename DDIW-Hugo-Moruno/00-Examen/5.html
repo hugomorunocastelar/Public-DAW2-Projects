@@ -1,0 +1,149 @@
+<!------------------------------------------------------
+// Examen de DAW2 (DIW)
+// Autor: Francisco Javier Merchán Macías
+// Descripción: Fichero principal HTML
+// Nombre del fichero: index.html
+------------------------------------------------------>
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Una página para el examen de html y css.">
+    <meta name="author" content="Hugo Moruno Parra">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./5.css">
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+  
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header id="cabecero">
+      <nav id="navbar">
+        <div id="iconname">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-paper" viewBox="0 0 16 16">
+            <path d="M4 0a2 2 0 0 0-2 2v1.133l-.941.502A2 2 0 0 0 0 5.4V14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5.4a2 2 0 0 0-1.059-1.765L14 3.133V2a2 2 0 0 0-2-2zm10 4.267.47.25A1 1 0 0 1 15 5.4v.817l-1 .6zm-1 3.15-3.75 2.25L8 8.917l-1.25.75L3 7.417V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1zm-11-.6-1-.6V5.4a1 1 0 0 1 .53-.882L2 4.267zm13 .566v5.734l-4.778-2.867zm-.035 6.88A1 1 0 0 1 14 15H2a1 1 0 0 1-.965-.738L8 10.083zM1 13.116V7.383l4.778 2.867L1 13.117Z"/>
+          </svg>
+          <h5>Hugo Moruno Parra</h5>
+        </div>
+        <div id="navlinks">
+          <a href="./1.html">Sobre Mi</a>
+          <a href="./2.html">Experiencia</a>
+          <a href="./3.html">Proyectos</a>
+          <a href="./4.html">Artículos</a>
+          <a href="./5.html">Testimonio</a>
+          <a href="./6.html">Contacto</a>
+        </div>
+      </nav>
+    </header>
+    <h1 style="text-align: center;">Testimonios</h1>
+    <main>
+      <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li
+            data-bs-target="#carouselId"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="First slide"
+          ></li>
+          <li
+            data-bs-target="#carouselId"
+            data-bs-slide-to="1"
+            aria-label="Second slide"
+          ></li>
+          <li
+            data-bs-target="#carouselId"
+            data-bs-slide-to="2"
+            aria-label="Third slide"
+          ></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img
+              src="./imgs1/img1.bmp"
+              class="w-100 d-block"
+              alt="First slide"
+            />
+            <div id="content">
+              <h4>testimonio 1</h4>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium nostrum expedita reprehenderit necessitatibus commodi quos! Mollitia, accusantium corporis tempore temporibus asperiores suscipit aspernatur veniam perspiciatis quod, error nesciunt eum! Quisquam!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./imgs1/img2.bmp"
+              class="w-100 d-block"
+              alt="Second slide"
+            />
+            <div id="content">
+              <h4>testimonio 2</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere similique, vitae culpa praesentium libero inventore commodi sed illum a esse aliquam fugit, obcaecati recusandae nihil totam minima reprehenderit? Magnam.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./imgs1/img3.bmp"
+              class="w-100 d-block"
+              alt="Third slide"
+            />
+            <div id="content">
+              <h4>testimonio 3</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, consectetur minima excepturi dolorum non sapiente quasi dignissimos et sequi ducimus exercitationem delectus beatae provident enim eligendi harum aperiam quidem alias!</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselId"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselId"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+    </main>
+    <footer>
+      <div id="nombreFooter">
+        <h5>Hugo Moruno Parra @2024</h5>
+      </div>
+      <div id="contenidoFooter">
+        <a href="https://www.java.com/es/">Programación</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Gustos</a>
+        <a href="https://fedexvoleibol.com/">Aficiones</a>
+      </div>
+    </footer>
+  </body>
+</html>

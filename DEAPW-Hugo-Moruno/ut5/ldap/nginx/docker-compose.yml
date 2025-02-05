@@ -1,0 +1,19 @@
+services:
+  nginx:
+    image: docker.io/bitnami/nginx:1.27
+    container_name: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - red_interna
+      - red_ldap
+    labels:
+      caddy: "nginx.ahut5ldap.duckdns.org"
+      caddy.reverse_proxy: "{{upstreams}}"
+    restart: always
+
+networks:
+  red_interna:
+    external: true
+  red_ldap:
+    external: true
